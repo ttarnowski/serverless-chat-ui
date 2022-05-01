@@ -1,6 +1,32 @@
-# Getting Started with Create React App
+# Build a Realtime Web Chat and deploy to AWS - TypeScript, Node, React & TailwindCSS - Frontend
+
+This repository has been created as a part of the YouTube video:
+[Build a Realtime Web Chat and deploy to AWS - TypeScript, Node, React & TailwindCSS](https://youtu.be/82Geq2Jq0pg)
+
+It is a frontend part of a simple web chat application using API Gateway Webosockets with Serverless Framework Infrastructure as a Code
+to easily deploy it to AWS.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Prerequisites
+
+- AWS CLI installed and configured
+- [`serverless-framework`](https://github.com/serverless/serverless)
+- [`node.js`](https://nodejs.org)
+
+## Installation
+
+Run:
+
+```bash
+npm install
+```
+
+or
+
+```
+yarn install
+```
 
 ## Available Scripts
 
@@ -29,18 +55,18 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Follow the instructions on the video to create and configure AWS S3 Bucket.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To synchronize changes with S3 bucket run:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm run build && aws s3 sync ./build s3://your_bucket_name/
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+where `your_bucket_name` is the name of the S3 bucket created and configured to serve content as static web server.
 
-## Learn More
+## Licence
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+MIT.
